@@ -24,8 +24,8 @@ class ContactApi {
     var mailOptions = {
       from: req.body.email,
       to: "chrisdietrich366@yahoo.com",
-      subject: "Contact form",
-      text: req.body.content,
+      subject: `Contact form from ${req.body.firstName} ${req.body.lastName}`,
+      text: req.body.message,
     };
     transport.sendMail(mailOptions, function (error, info) {
       if (error) {

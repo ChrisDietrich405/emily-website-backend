@@ -1,6 +1,6 @@
 const config = {
   envDevelopment: {
-    PORT: 3000,
+    PORT: 3003,
   },
   envProduction: {
     PORT: 443,

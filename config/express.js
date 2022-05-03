@@ -1,7 +1,10 @@
+const cors = require("cors");
+
 const express = require("express"),
   app = express(),
   consign = require("consign");
 
+app.use(cors());
 app.use(express.json());
 
 consign()
