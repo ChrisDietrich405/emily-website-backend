@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const fs = require("fs");
 var transport = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
   port: 2525,
@@ -20,12 +21,14 @@ var transport = nodemailer.createTransport({
 
 class ContactApi {
   sendForm(req, res) {
-    console.log(req.body);
+    let content = fs.readFile("./contact-form-template.html");
+    console.log(content);
     var mailOptions = {
       from: req.body.email,
       to: "chrisdietrich366@yahoo.com",
       subject: `Contact form from ${req.body.firstName} ${req.body.lastName}`,
       text: req.body.message,
+      html: content,
     };
     transport.sendMail(mailOptions, function (error, info) {
       if (error) {
