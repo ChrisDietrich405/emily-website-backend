@@ -21,8 +21,8 @@ var transport = nodemailer.createTransport({
 
 class ContactApi {
   sendForm(req, res) {
-    let content = fs.readFile("./contact-form-template.html");
-    console.log(content);
+    let content = fs.readFileSync(__dirname + "/contact-form-template.html");
+    console.log(new Buffer.from(content).toString());
     var mailOptions = {
       from: req.body.email,
       to: "chrisdietrich366@yahoo.com",

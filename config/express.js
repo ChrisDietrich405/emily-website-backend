@@ -7,7 +7,7 @@ const express = require("express"),
 app.use(cors());
 app.use(express.json());
 
-consign()
+consign({extensions: [ '.js', '.json', '.node' ] }) 
   .include("routes") //routes, infra and app will be folders
   .then("infra") //and consign is a library used with express
   .then("api") //to help us build necessary folders
